@@ -15,7 +15,7 @@ client = OpenAI(
 messages = [
  {
   "role": "user",
-  "content": "What is the capital of France?"
+  "content": "Tell me why Lewis Hamilton is better than Michael Schumacher"
  }
 ]
 
