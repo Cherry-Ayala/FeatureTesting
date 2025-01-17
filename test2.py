@@ -9,6 +9,20 @@ def quicksort(arr):
     return quicksort(left) + middle + quicksort(right)
 
 
+#function that reverses a binary tree
+```python
+def reverse_binary_tree(root):
+    if root is None:
+        return None
+    # Swap the left and right child
+    root.left, root.right = root.right, root.left
+    # Recursively reverse the left and right subtrees
+    reverse_binary_tree(root.left)
+    reverse_binary_tree(root.right)
+    return root
+```
+
+
 #make a dijkstra function
 def dijkstra(graph, start, end):
     shortest_distance = {}
