@@ -22,6 +22,9 @@ def reverse_binary_tree(root):
     return root
 ```
 
+def add_two_nums(x,y):
+    return x+y
+
 
 #make a dijkstra function
 def dijkstra(graph, start, end):
@@ -60,3 +63,9 @@ def dijkstra(graph, start, end):
     if shortest_distance[end] != infinity:
         print('Shortest distance is ' + str(shortest_distance[end]))
         print('And the path is ' + str(path))
+
+
+def multipy_3_nums(x,y,z):
+    result = x*y*zdef multipy_3_nums(x, y, z):
+    result = x * y * z
+    return result
