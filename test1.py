@@ -15,7 +15,7 @@ client = OpenAI(
 messages = [
  {
   "role": "user",
-  "content": "What number Tom Brady used in Tampa Bay?"
+  "content": "What number Tom Brady wore in the NFL?"
  }
 ]
 
