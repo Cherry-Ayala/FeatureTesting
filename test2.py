@@ -8,6 +8,19 @@ def quicksort(arr):
     right = [x for x in arr if x > pivot]
     return quicksort(left) + middle + quicksort(right)
 
+def greeting(name):    return f"Hello, {name}!"
+
+def salutation(a, b):
+    return f"Hello, {a}, {b}!"
+
+def mergeSort (lst):
+    if len(lst) <= 1:
+        return lst
+    pivot = lst[len(lst) // 2]
+    left = [x for x in lst if x < pivot]
+    middle = [x for x in lst if x == pivot]
+    right = [x for x in lst if x > pivot]
+    return mergeSort(left) + middle + mergeSort(right)
 
 #function that reverses a binary tree
 ```python
@@ -25,6 +38,9 @@ def reverse_binary_tree(root):
 def add_two_nums(x,y):
     return x+y
 
+def idk(x, y):
+    result = x*y
+    return result
 
 #make a dijkstra function
 def dijkstra(graph, start, end):
@@ -69,3 +85,32 @@ def multipy_3_nums(x,y,z):
     result = x*y*zdef multipy_3_nums(x, y, z):
     result = x * y * z
     return result
+
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quicksort(left) + middle + quicksort(right)
+
+def read_file(file):    
+    with open(file, 'r') as f:
+        content = f.read()
+    return content
+
+def greeting(name):    return f"Hello, {name}!"
+
+def goodbye(name):
+    return f"Goodbye, {name}!"
+
+def bogoSort(arr):
+        def is_sorted(lst):
+            for i in range(len(lst) - 1):
+                if lst[i] > lst[i + 1]:
+                    return False
+            return True
+
+        while not is_sorted(arr):
+            shuffle(arr)
