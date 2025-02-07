@@ -9,7 +9,7 @@ print(os.environ.get("HF_API_KEY"))
 
 client = OpenAI(
  #base_url=os.environ["HF_URL"],
- base_url=os.environ["DS_URL"],
+ base_url=os.environ["HF_URL"],
  api_key=os.environ["HF_API_KEY"]
 )
 
