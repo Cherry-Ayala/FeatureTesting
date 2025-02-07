@@ -108,3 +108,10 @@ def unsort_list(sorted_list):
     shuffled_list = sorted_list[:]
     random.shuffle(shuffled_list)
     return shuffled_list
+
+
+#make a function that sums three numbers, and return the result in a string
+def sum_three_nums(a, b, c):
+    """Function to sum three numbers and return the result as a string."""
+    result = a + b + c
+    return f"The sum is {result}"
