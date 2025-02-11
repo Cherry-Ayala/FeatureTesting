@@ -115,3 +115,49 @@ def sum_three_nums(a, b, c):
     """Function to sum three numbers and return the result as a string."""
     result = a + b + c
     return f"The sum is {result}"
+
+def shortestPath(graph, start_node, end_node):
+    # Import necessary module
+    from queue import PriorityQueue
+
+    # Check if start or end node does not exist in the graph
+    if start_node not in graph or end_node not in graph:
+        return None
+
+    # Priority queue to store (distance, node) tuples
+    pq = PriorityQueue()
+    pq.put((0, start_node))  # (distance, node)
+
+    # Dictionary to store the shortest distance to each node
+    distances = {node: float('inf') for node in graph}
+    distances[start_node] = 0
+
+    # Dictionary to store the path for the shortest distance
+    previous_nodes = {node: None for node in graph}
+
+    while not pq.empty():
+        current_distance, current_node = pq.get()
+
+        # Early exit if we reached the end node
+        if current_node == end_node:
+            path = []
+            while previous_nodes[current_node] is not None:
+                path.append(current_node)
+                current_node = previous_nodes[current_node]
+            path.append(start_node)
+            return path[::-1]
+
+        # Check neighbors
+        for neighbor, weight in graph[current_node].items():
+            distance = current_distance + weight
+
+            # Only consider this new path if it's better
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                previous_nodes[neighbor] = current_node
+                pq.put((distance, neighbor))
+
+    return None  # If no path is found
+
+
+def longestPath 

@@ -83,3 +83,35 @@ def process_text(input_text):
         return '\n'.join(result)
     else:
         return "EMPTY_INPUT"
+
+def sorting_a_list(input_list):
+    if isinstance(input_list, list):
+        return sorted(input_list)
+    else:
+        raise ValueError("Input must be a list.")
+    
+def sort_and_process_list(data):
+    if not isinstance(data, list):
+        raise ValueError("Data must be a list.")
+
+    # Sort the list
+    sorted_data = sorted(data)
+
+    # Extract times
+    times = [datetime.strptime(item['timestamp'], "%Y-%m-%dT%H:%M:%S") for item in sorted_data if 'timestamp' in item]
+
+    # Sort times as well (just in case, though list should already be sorted)
+    times_sorted = sorted(times)
+
+    # Process each item
+    processed_data = []
+    for item in sorted_data:
+        if 'amount' in item and item['amount'] > 1000:
+            item['amount'] = 1000
+        processed_data.append(item)
+
+    # Sort again by amount descending
+    result = sorted(processed_data, key=lambda x: x.get('amount', 0), reverse=True)
+
+    return result, times_sorted
+
