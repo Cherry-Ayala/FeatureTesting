@@ -1,12 +1,13 @@
 from openai import OpenAI
+import os
 
 client = OpenAI(
-    base_url = 'http://localhost:11434/v1',
-    api_key='ollama', # required, but unused
+    base_url = os.getenv("OLLAMA_URL"),
+    api_key=os.getenv("OLLAMA_API_KEY"), # required, but unused
 )
 
 response = client.chat.completions.create(
-  model="deepseek-r1:7b",
+  model=os.getenv("OLLAMA_MODEL"),
   messages=[
     {"role": "system", "content": "You are a helpful assistant."},
     {"role": "user", "content": "What is the capital of France"},
