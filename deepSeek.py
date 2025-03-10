@@ -2,6 +2,8 @@ import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.core.credentials import AzureKeyCredential
 
+
+
 api_key = os.getenv("DS_API_KEY", '')
 if not api_key:
   raise Exception("A key should be provided to invoke the endpoint")

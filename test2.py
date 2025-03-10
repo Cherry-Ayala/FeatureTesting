@@ -10,3 +10,6 @@ def quickSort(arr):
         return quickSort(left) + middle + quickSort(right)
     
 
+#create a dijkstra function
+
+

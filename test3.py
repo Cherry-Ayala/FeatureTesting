@@ -31,7 +31,7 @@ def floyd_warshall_algorithm(graph):
     
     return distance
 
-def appen_element_to_list(element,list):
+def append_element_to_list(element,list):
     list.append(element)
     return list
 
@@ -47,7 +47,8 @@ def squareRoot(x):
 
     return guess
 
-def divide_a_result
+def divide_a_result():
+    pass
 
 def sum_of_two_nums(x,y):
     result = x+y
@@ -156,3 +157,31 @@ def number_to_word(n):
     else:
         return "Number out of range"
     
+
+#create a function that solves the tsp
+def solve_tsp(graph):
+    num_vertices = len(graph)
+    all_visited = (1 << num_vertices) - 1
+    dp = [[float('inf')] * num_vertices for _ in range(1 << num_vertices)]
+
+    # Start at each node
+    for i in range(num_vertices):
+        dp[1 << i][i] = 0
+
+    # Iterate over all subsets of nodes
+    for mask in range(1 << num_vertices):
+        for u in range(num_vertices):
+            if mask & (1 << u):
+                # Try to find a shorter path to each node v from u
+                for v in range(num_vertices):
+                    if not mask & (1 << v) and graph[u][v]:
+                        next_mask = mask | (1 << v)
+                        dp[next_mask][v] = min(dp[next_mask][v], dp[mask][u] + graph[u][v])
+
+    # Find the minimum cost to return to the start node
+    min_cost = float('inf')
+    for i in range(num_vertices):
+        if graph[i][0]:
+            min_cost = min(min_cost, dp[all_visited][i] + graph[i][0])
+
+    return min_cost if min_cost < float('inf') else None
