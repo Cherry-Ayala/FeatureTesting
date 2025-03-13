@@ -2,7 +2,7 @@ import os
 import json
 from pinecone import Index
 from openai import AzureOpenAI
-from utils import Logger, ToolResult, ToolResultDirection
+from src.utils import Logger, ToolResult, ToolResultDirection
 
 logger = Logger()
 

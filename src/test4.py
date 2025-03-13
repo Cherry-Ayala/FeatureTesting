@@ -158,6 +158,3 @@ def shortestPath(graph, start_node, end_node):
                 pq.put((distance, neighbor))
 
     return None  # If no path is found
-
-
-def longestPath 

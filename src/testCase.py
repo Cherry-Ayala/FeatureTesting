@@ -80,3 +80,5 @@ class GraphPathAnalyzer:
     def analyzePaths(self):
         end_node = mostConnectedNode(self.graph)[0]
         return PathDistances(self.graph, self.start_node, end_node)
+    
+
