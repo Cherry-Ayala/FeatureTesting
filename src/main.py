@@ -115,3 +115,22 @@ def sort_and_process_list(data):
 
     return result, times_sorted
 
+
+def analyze_data(data):
+    if not isinstance(data, list):
+        raise ValueError("Data must be a list.")
+    
+    # Filter data with amounts greater than 500
+    filtered_data = [entry for entry in data if entry.get('amount', 0) > 500]
+    
+    # Process timestamps: convert each to a datetime object
+    processed_timestamps = [
+        datetime.strptime(entry['timestamp'], "%Y-%m-%dT%H:%M:%S") 
+        for entry in filtered_data if 'timestamp' in entry
+    ]
+    
+    # Sort the filtered data by amount in ascending order
+    sorted_filtered_data = sorted(filtered_data, key=lambda x: x.get('amount', 0))
+    
+    return sorted_filtered_data, processed_timestamps
+

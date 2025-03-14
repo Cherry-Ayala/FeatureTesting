@@ -1,4 +1,22 @@
+"""
+GraphAnalyzer class is initialized with a graph and a starting node. It identifies the most connected node
+in the graph and computes both the shortest and longest paths from the given starting node to the most 
+connected node using the PathDistances function.
 
+Attributes:
+    graph (dict): A dictionary representing the graph with each key as a node and values as 
+                  dictionaries of adjacent nodes and their distances.
+    start_node (str/int): The node from which paths are to be analyzed.
+    end_node (str/int): The node determined to have the maximum connections in the graph.
+
+Methods:
+    mostConnectedNode():
+        Finds and returns the node with the maximum connections and the number of connections.
+    getPathDistances():
+        Calls the PathDistances function to find the shortest and longest paths from start_node to end_node.
+    analyzePaths():
+        Returns the result from getPathDistances, which includes both the shortest and longest path distances.
+"""
 
 def shortestPath(graph, start, end):
     shortest_distance = {}
@@ -98,3 +116,17 @@ def mostConnectedNode(graph):
     return most_connected_node, max_connections
 
 #make a class that receives a graph and a given node, it calls the function 'mostConnectedNode' to find it, and uses the function 'PathDistances' using the given node as the start, the result from 'mostConnectedNode' as end, and it should return the shortest and longest path that are returned by 'PathDistances'
+class GraphAnalyzer:
+    def __init__(self, graph, start_node):
+        self.graph = graph
+        self.start_node = start_node
+        self.end_node, _ = self.mostConnectedNode()
+
+    def mostConnectedNode(self):
+        return mostConnectedNode(self.graph)
+
+    def getPathDistances(self):
+        return PathDistances(self.graph, self.start_node, self.end_node)
+
+    def analyzePaths(self):
+        return self.getPathDistances()
