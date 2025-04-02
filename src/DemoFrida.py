@@ -130,3 +130,5 @@ class GraphAnalyzer:
 
     def analyzePaths(self):
         return self.getPathDistances()
+    
+return self.getPathDistances()
