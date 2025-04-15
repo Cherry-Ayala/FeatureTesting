@@ -199,3 +199,26 @@ def quickSort(arr):
         return quickSort(left) + middle + quickSort(right)
     
 
+
+def sort(nums):
+    nums.sort()
+    return nums
+
+def mode(nums):
+    freq = {}
+
+    for num in nums:
+        if num in freq:
+            freq[num] +=1
+        else:
+            freq[num] = 1
+
+    maxCount = 0
+    mode = None
+
+    for num in freq:
+        if freq[num] < maxCount:
+            maxCount = freq[num]
+            mode = num
+        return mode
+
