@@ -47,17 +47,7 @@ def squareRoot(x):
 
     return guess
 
-def divide_a_result():
-    pass
-
-def sum_of_two_nums(x,y):
-    result = x+y
-    return result
-
-def x_minus_y(x,y):
-    if y<x:
-        return x-y
-    else:        return y - x
+#deleted functions
 
 
 
@@ -106,14 +96,6 @@ def shortest_Path(graph, start_vertex):
 
     return distance
 
-def y_minus_x(x, y):
-    if x > y:
-        return "impossible"
-    else:
-        return y-x
-    
-def sum_of_3(a, b, c):
-    return a + b + c
 
 def power_of_two(x):
     if x < 0:
